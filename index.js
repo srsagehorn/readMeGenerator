@@ -11,6 +11,11 @@ const questions = [
   },
   {
     type: "input",
+    name: "email",
+    message: "What is your email?",
+  },
+  {
+    type: "input",
     name: "title",
     message: "Enter the title",
   },
@@ -20,10 +25,30 @@ const questions = [
     message: "Enter the description",
   },
   {
-    type: "license",
+    type: "input",
+    name: "contributors",
+    message: "List any contributors by their github username",
+  },
+  {
+    type: "input",
+    name: "install",
+    message: "How do you run your program? (include required packages)",
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "How can others use your program?",
+  },
+  {
+    type: "checkbox",
     name: "license",
     message: "Select license type",
     choices: ["Creative Commons", "All Rights Reserved", "Open Source"],
+  },
+  {
+    type: "input",
+    name: "tests",
+    message: "Enter tests here",
   },
 ];
 
@@ -41,9 +66,9 @@ console.log(questions);
 // function to initialize program
 function init() {
   inquirer.prompt(questions).then(function (answers) {
+    console.log(answers);
     writeToFile("README.md", answers);
   });
 }
-
 // function call to initialize program
 init();
